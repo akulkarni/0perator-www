@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator - AI Agents Deploy Software</title>
+    <meta name="description" content="Build world-class apps in 60 seconds. Operator is infrastructure for AI agents - instant deployment, no dashboards, one command.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">
+                    <span class="pulse-dot"></span>
+                    Infrastructure for AI Agents
+                </div>
+                <h1 class="hero-title">
+                    Build world-class apps<br>
+                    in 60 seconds
+                </h1>
+                <p class="hero-subtitle">
+                    One prompt. One command. Real infrastructure, live database, deployed app.<br>
+                    No dashboards. No YAML. No DevOps.
+                </p>
+                <div class="cta-container">
+                    <div class="install-requirements">
+                        Requires macOS 10.15+ or Linux | Node 18+
+                    </div>
+                    <div class="install-command-large">
+                        <code id="installCommand">curl -fsSL https://cli.tigerdata.com | sh</code>
+                        <button class="copy-btn-large" id="copyBtn" aria-label="Copy install command">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="cta-links">
+                        <a href="https://raw.githubusercontent.com/tigerdata-cloud/operator/main/install.sh" class="view-script-link" target="_blank" rel="noopener">(view script)</a>
+                        <span class="link-separator">|</span>
+                        <a href="https://github.com/tigerdata-cloud/operator" class="github-link" target="_blank" rel="noopener">Show me the code →</a>
+                        <span class="link-separator">|</span>
+                        <a href="#demo" class="cta-secondary-link">See it in action →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="what-you-get">
+        <div class="container">
+            <h3 class="what-you-get-title">After install:</h3>
+            <ul class="what-you-get-list">
+                <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span><strong>operator</strong> CLI in your terminal</span>
+                </li>
+                <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>MCP server auto-configured for Claude Code</span>
+                </li>
+                <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Free TigerData account with 1 database</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Terminal Demo Section -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="demo-content">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <div class="terminal-title">Claude Code</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line prompt">
+                            <span class="prompt-symbol">$</span>
+                            <span id="typedPrompt"></span>
+                            <span class="cursor-blink">|</span>
+                        </div>
+                        <div class="terminal-output" id="terminalOutput"></div>
+                        <div class="terminal-stats" id="terminalStats"></div>
+                    </div>
+                </div>
+                <div class="demo-annotation">
+                    <div class="annotation-item">
+                        <div class="annotation-number">1</div>
+                        <div class="annotation-text">
+                            <strong>Postgres provisioned</strong>
+                            <span>TigerData spins up in &lt;10s</span>
+                        </div>
+                    </div>
+                    <div class="annotation-item">
+                        <div class="annotation-number">2</div>
+                        <div class="annotation-text">
+                            <strong>App scaffolded</strong>
+                            <span>TypeScript + Fastify + Auth</span>
+                        </div>
+                    </div>
+                    <div class="annotation-item">
+                        <div class="annotation-number">3</div>
+                        <div class="annotation-text">
+                            <strong>Deployed locally</strong>
+                            <span>Running on localhost:3000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases" id="use-cases">
+        <div class="container">
+            <h2 class="section-title">
+                What you can build
+            </h2>
+            <div class="cases-grid">
+                <div class="case-card case-card-featured">
+                    <div class="case-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Internal Tools</h3>
+                    <p>Build a team dashboard in 60 seconds. No tickets to DevOps, no waiting on infra.</p>
+                    <div class="case-prompt">"Create an analytics dashboard with user metrics"</div>
+                    <div class="case-code-preview">
+                        <div class="code-preview-header">Generated structure:</div>
+                        <pre class="code-preview-content"><code>src/
+├── routes/
+│   ├── auth.ts      <span class="code-comment">// OAuth + session</span>
+│   └── dashboard.ts <span class="code-comment">// Your metrics</span>
+├── db/
+│   ├── schema.sql   <span class="code-comment">// Auto-generated</span>
+│   └── client.ts    <span class="code-comment">// Connected to TigerData</span>
+└── server.ts        <span class="code-comment">// Running on :3000</span></code></pre>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Side Projects</h3>
+                    <p>Ship your weekend idea before Monday. From concept to production in one prompt.</p>
+                    <div class="case-prompt">"Build a link shortener with analytics"</div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Rapid Prototypes</h3>
+                    <p>From concept to clickable in one command. Iterate at the speed of thought.</p>
+                    <div class="case-prompt">"Create a voting app with real-time results"</div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h3>Personal Automation</h3>
+                    <p>Software that fits exactly how you work. Your own engineering team.</p>
+                    <div class="case-prompt">"Build a personal task tracker with email reminders"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">AI-native infrastructure</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-stat">
+                        <span class="stat-number" data-target="60">0</span>
+                        <span class="stat-unit">seconds</span>
+                    </div>
+                    <h3>Instant deployment</h3>
+                    <p>Live app and database under 60 seconds. No containers, no cold starts.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-stat">
+                        <span class="stat-number" data-target="1">0</span>
+                        <span class="stat-unit">command</span>
+                    </div>
+                    <h3>MCP-first design</h3>
+                    <p>Exposed via Model Context Protocol. AI agents call it directly from your IDE.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-stat">
+                        <span class="stat-number" data-target="0">0</span>
+                        <span class="stat-unit">dashboards</span>
+                    </div>
+                    <h3>Pure simplicity</h3>
+                    <p>No web UI, no YAML, no manual setup. Just prompts and code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Build world-class apps.<br>With one command.</h2>
+                <div class="cta-buttons">
+                    <a href="https://github.com/tigerdata-cloud/operator" class="cta-primary">Get started</a>
+                    <a href="https://docs.operator.dev" class="cta-secondary">Read the docs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <strong>Operator</strong>
+                    <span>Built by Tiger</span>
+                </div>
+                <div class="footer-center">
+                    <a href="https://github.com/tigerdata-cloud/operator" class="github-badge" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        <span>Star on GitHub</span>
+                    </a>
+                    <span class="footer-pricing">Free during beta • 3 apps, 1GB database included</span>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/tigerdata-cloud/operator">GitHub</a>
+                    <a href="https://docs.operator.dev">Docs</a>
+                    <a href="https://tiger.io">Tiger Cloud</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
