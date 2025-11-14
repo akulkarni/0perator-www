@@ -84,7 +84,6 @@ function displayOutput() {
         const line = outputLines[lineIndex];
         const lineElement = document.createElement('div');
         lineElement.textContent = line.text;
-        lineElement.style.animationDelay = '0s';
         terminalOutputElement.appendChild(lineElement);
 
         lineIndex++;
@@ -99,16 +98,8 @@ function showFinalStats() {
     const endTime = Date.now();
     const elapsed = ((endTime - startTime) / 1000).toFixed(1);
 
-    terminalStatsElement.innerHTML = `
-        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
-            <span>✓ Deployment complete</span>
-            <span>Total time: ${elapsed}s</span>
-        </div>
-    `;
+    terminalStatsElement.textContent = `✓ Deployment complete — Total time: ${elapsed}s`;
     terminalStatsElement.style.animation = 'fadeIn 0.6s forwards';
-
-    // Animate the deployment time counter
-    animateCounter(elapsed);
 }
 
 function animateCounter(target) {

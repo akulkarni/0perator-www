@@ -311,19 +311,21 @@ section {
 }
 
 .terminal-window {
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
+    background: #000000;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
 .terminal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
-    background: var(--color-bg-subtle);
-    border-bottom: 1px solid var(--color-border);
+    padding: 8px 12px;
+    background: #1a1a1a;
+    border-bottom: 1px solid #2a2a2a;
+    position: relative;
 }
 
 .terminal-controls {
@@ -345,48 +347,69 @@ section {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 13px;
-    color: var(--color-text-muted);
+    font-size: 12px;
+    color: #8a8a8a;
     font-family: var(--font-mono);
+    font-weight: 400;
 }
 
 .terminal-body {
-    padding: 20px;
+    padding: 24px;
     font-family: var(--font-mono);
-    font-size: 14px;
-    min-height: 250px;
-}
-
-.terminal-line {
-    margin-bottom: 12px;
-}
-
-.prompt {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 24px;
-}
-
-.prompt-symbol {
-    color: var(--color-accent);
-}
-
-.cursor-blink {
-    color: var(--color-accent);
-}
-
-.terminal-output {
-    color: var(--color-text-muted);
+    font-size: 13px;
+    min-height: 320px;
+    background: #000000;
+    color: #ffffff;
     line-height: 1.8;
 }
 
+.chat-message {
+    margin-bottom: 24px;
+    display: block;
+}
+
+.user-message {
+    color: #ffffff;
+}
+
+.user-message .message-symbol {
+    margin-right: 8px;
+}
+
+.cursor-blink {
+    color: #ffffff;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.terminal-output {
+    color: #ffffff;
+    line-height: 1.8;
+}
+
+.terminal-output div {
+    padding: 0;
+    margin: 0;
+    white-space: pre;
+}
+
+.bullet {
+    display: inline-block;
+    width: 12px;
+    color: #ffffff;
+}
+
 .terminal-stats {
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid var(--color-border);
-    color: var(--color-accent);
-    font-weight: 600;
+    margin-top: 8px;
+    color: #ffffff;
+    font-weight: 400;
     opacity: 0;
+    white-space: pre;
 }
 
 /* Demo Annotations */
@@ -689,6 +712,17 @@ section {
 .footer-brand span {
     color: var(--color-text-muted);
     font-size: 14px;
+}
+
+.built-by-link {
+    color: var(--color-text-muted);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.built-by-link:hover {
+    color: var(--color-text);
 }
 
 .footer-links {
