@@ -89,6 +89,16 @@ section {
     height: 8px;
     background: var(--color-accent);
     border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
 }
 
 .hero-title {
@@ -251,6 +261,12 @@ section {
 .what-you-get {
     padding: 32px 0;
     background: var(--color-bg);
+    display: flex;
+    justify-content: center;
+}
+
+.what-you-get .container {
+    max-width: fit-content;
 }
 
 .what-you-get-title {
