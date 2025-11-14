@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operator - Ship Apps & Agents in 60 Seconds</title>
+    <title>0perator - Ship Apps & Agents in 60 Seconds</title>
     <meta name="description" content="Build apps and AI agents in 60 seconds. Deploy software with one prompt—real infrastructure, live database, no DevOps.">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -41,38 +41,36 @@
                         <a href="https://cli.0p.dev" class="view-script-link" target="_blank" rel="noopener">(view script)</a>
                         <span class="link-separator">|</span>
                         <a href="https://github.com/akulkarni/0perator" class="github-link" target="_blank" rel="noopener">Show me the code →</a>
-                        <span class="link-separator">|</span>
-                        <a href="#demo" class="cta-secondary-link">See it in action →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What You Get Section -->
-    <section class="what-you-get">
+    <!-- Terminal Demo Section -->
+    <section class="demo" id="demo">
         <div class="container">
-            <h3 class="what-you-get-title">After install:</h3>
-            <ul class="what-you-get-list">
-                <li>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span><strong>operator</strong> CLI in your terminal</span>
-                </li>
-                <li>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span>MCP server auto-configured for Claude Code</span>
-                </li>
-                <li>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span>Free TigerData account with 1 database</span>
-                </li>
-            </ul>
+            <div class="demo-content">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <div class="terminal-title">Claude Code</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="chat-message user-message">
+                            <span class="message-symbol">></span>
+                            <span id="typedPrompt"></span>
+                            <span class="cursor-blink"></span>
+                        </div>
+                        <div class="terminal-output" id="terminalOutput"></div>
+                        <div class="terminal-stats" id="terminalStats"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -96,14 +94,14 @@
                     <div class="case-prompt">"Create an analytics dashboard with user metrics"</div>
                     <div class="case-code-preview">
                         <div class="code-preview-header">Generated structure:</div>
-                        <pre class="code-preview-content"><code>src/
-├── routes/
-│   ├── auth.ts      <span class="code-comment">// OAuth + session</span>
-│   └── dashboard.ts <span class="code-comment">// Your metrics</span>
-├── db/
-│   ├── schema.sql   <span class="code-comment">// Auto-generated</span>
-│   └── client.ts    <span class="code-comment">// Connected to TigerData</span>
-└── server.ts        <span class="code-comment">// Running on :3000</span></code></pre>
+                        <pre class="code-preview-content"><code><span class="code-folder">src/</span>
+<span class="code-tree">├──</span> <span class="code-folder">routes/</span>
+<span class="code-tree">│   ├──</span> <span class="code-file">auth.ts</span>      <span class="code-comment">// OAuth + session</span>
+<span class="code-tree">│   └──</span> <span class="code-file">dashboard.ts</span> <span class="code-comment">// Your metrics</span>
+<span class="code-tree">├──</span> <span class="code-folder">db/</span>
+<span class="code-tree">│   ├──</span> <span class="code-file">schema.sql</span>   <span class="code-comment">// Auto-generated</span>
+<span class="code-tree">│   └──</span> <span class="code-file">client.ts</span>    <span class="code-comment">// Connected to TigerData</span>
+<span class="code-tree">└──</span> <span class="code-file">server.ts</span>        <span class="code-comment">// Running on :3000</span></code></pre>
                     </div>
                 </div>
 
@@ -186,55 +184,6 @@
         </div>
     </section>
 
-    <!-- Terminal Demo Section -->
-    <section class="demo" id="demo">
-        <div class="container">
-            <div class="demo-content">
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <div class="terminal-controls">
-                            <span class="control red"></span>
-                            <span class="control yellow"></span>
-                            <span class="control green"></span>
-                        </div>
-                        <div class="terminal-title">Claude Code</div>
-                    </div>
-                    <div class="terminal-body">
-                        <div class="chat-message user-message">
-                            <span class="message-symbol">></span>
-                            <span id="typedPrompt"></span>
-                            <span class="cursor-blink">|</span>
-                        </div>
-                        <div class="terminal-output" id="terminalOutput"></div>
-                        <div class="terminal-stats" id="terminalStats"></div>
-                    </div>
-                </div>
-                <div class="demo-annotation">
-                    <div class="annotation-item">
-                        <div class="annotation-number">1</div>
-                        <div class="annotation-text">
-                            <strong>Postgres provisioned</strong>
-                            <span>TigerData spins up in &lt;10s</span>
-                        </div>
-                    </div>
-                    <div class="annotation-item">
-                        <div class="annotation-number">2</div>
-                        <div class="annotation-text">
-                            <strong>App scaffolded</strong>
-                            <span>TypeScript + Fastify + Auth</span>
-                        </div>
-                    </div>
-                    <div class="annotation-item">
-                        <div class="annotation-number">3</div>
-                        <div class="annotation-text">
-                            <strong>Deployed locally</strong>
-                            <span>Running on localhost:3000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- How It Works -->
     <section class="how-it-works">
@@ -289,7 +238,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <strong>Operator</strong>
+                    <strong>0perator</strong>
                     <a href="https://tigerdata.com" class="built-by-link" target="_blank" rel="noopener">Built by Tiger</a>
                 </div>
                 <div class="footer-center">

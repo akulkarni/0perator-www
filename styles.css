@@ -64,11 +64,14 @@ section {
     align-items: center;
     position: relative;
     padding: 48px 0;
+    text-align: center;
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .hero-label {
@@ -113,7 +116,7 @@ section {
     font-size: clamp(16px, 2vw, 18px);
     color: var(--color-text-muted);
     max-width: 700px;
-    margin-bottom: 32px;
+    margin: 0 auto 32px;
     line-height: 1.5;
 }
 
@@ -121,7 +124,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .install-requirements {
@@ -308,6 +311,7 @@ section {
 .demo {
     background: var(--color-bg-elevated);
     position: relative;
+    padding: 64px 0;
 }
 
 .demo::before {
@@ -321,9 +325,8 @@ section {
 }
 
 .demo-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .terminal-window {
@@ -374,9 +377,28 @@ section {
     font-family: var(--font-mono);
     font-size: 13px;
     min-height: 320px;
+    max-height: 480px;
+    overflow-y: auto;
     background: #000000;
     color: #ffffff;
     line-height: 1.8;
+}
+
+.terminal-input-line {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    outline: none;
+    padding: 0;
 }
 
 .chat-message {
@@ -393,9 +415,13 @@ section {
 }
 
 .cursor-blink {
-    color: #ffffff;
+    display: inline-block;
+    width: 10px;
+    height: 16px;
+    background: var(--color-accent);
     animation: blink 1s infinite;
     margin-left: 2px;
+    vertical-align: text-bottom;
 }
 
 @keyframes blink {
@@ -412,6 +438,24 @@ section {
     padding: 0;
     margin: 0;
     white-space: pre;
+}
+
+.terminal-line-init {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.terminal-line-action {
+    color: var(--color-accent);
+}
+
+.terminal-line-success {
+    color: #ffffff;
+}
+
+.terminal-url {
+    color: #ffffff;
+    font-weight: 700;
 }
 
 .bullet {
@@ -573,6 +617,19 @@ section {
 
 .code-comment {
     color: var(--color-text-muted);
+}
+
+.code-folder {
+    color: #e6e6e6;
+    font-weight: 600;
+}
+
+.code-file {
+    color: #abb2bf;
+}
+
+.code-tree {
+    color: #5c6370;
 }
 
 @media (max-width: 768px) {
@@ -770,6 +827,10 @@ section {
         padding: 32px 0;
     }
 
+    .demo {
+        padding: 32px 0;
+    }
+
     .terminal-body {
         font-size: 12px;
         padding: 16px;
@@ -791,13 +852,6 @@ section {
 
     .final-cta {
         padding: 48px 0;
-    }
-}
-
-@media (min-width: 768px) {
-    .demo-content {
-        grid-template-columns: 2fr 1fr;
-        align-items: center;
     }
 }
 
