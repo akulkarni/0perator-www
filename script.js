@@ -1,4 +1,33 @@
 // =============================================================================
+// VHS Glitch Effects
+// =============================================================================
+
+// Random VHS tracking glitch
+function createVHSGlitch() {
+    const body = document.body;
+    if (Math.random() > 0.95) { // 5% chance per interval
+        body.style.transform = `translateX(${Math.random() * 4 - 2}px)`;
+        setTimeout(() => {
+            body.style.transform = 'translateX(0)';
+        }, 50);
+    }
+}
+
+setInterval(createVHSGlitch, 2000);
+
+// Random color distortion
+function createColorDistortion() {
+    if (Math.random() > 0.98) { // 2% chance
+        document.body.style.filter = 'hue-rotate(10deg)';
+        setTimeout(() => {
+            document.body.style.filter = 'none';
+        }, 100);
+    }
+}
+
+setInterval(createColorDistortion, 3000);
+
+// =============================================================================
 // Copy Install Command
 // =============================================================================
 
@@ -12,7 +41,7 @@ if (copyBtn && installCommand) {
         try {
             await navigator.clipboard.writeText(text);
 
-            // Visual feedback
+            // Visual feedback with retro style
             this.classList.add('copied');
             const originalHTML = this.innerHTML;
 
