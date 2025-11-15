@@ -88,6 +88,9 @@ section {
 .hero-content {
     position: relative;
     z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .hero-label {
@@ -135,9 +138,16 @@ section {
     font-size: 19px;
     color: var(--text-muted);
     max-width: 650px;
-    margin-bottom: 48px;
+    margin: 0 auto 48px;
     line-height: 1.7;
     font-weight: 400;
+}
+
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
 }
 
 .install-requirements {
@@ -240,6 +250,10 @@ section {
     background: var(--bg-elevated);
 }
 
+.what-you-get .container {
+    max-width: fit-content;
+}
+
 .what-you-get-title {
     font-size: 11px;
     font-weight: 700;
@@ -288,9 +302,13 @@ section {
     font-size: 14px;
 }
 
-/* Use Cases Section */
-.use-cases {
+/* ==========================================================================
+   Terminal Demo Section
+   ========================================================================== */
+
+.demo {
     padding: 120px 0;
+    border-top: 1px solid var(--border);
 }
 
 .section-title {
@@ -300,12 +318,13 @@ section {
     letter-spacing: -0.03em;
     margin-bottom: 64px;
     color: var(--text);
+    text-align: center;
 }
 
-.cases-grid {
+.demo-content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 48px;
 }
 
 .case-card {
@@ -433,6 +452,7 @@ section {
     padding: 14px 18px;
     background: rgba(255, 255, 255, 0.05);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
 }
 
 .terminal-controls {
@@ -474,8 +494,40 @@ section {
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
     min-height: 400px;
+    max-height: 480px;
+    overflow-y: auto;
     line-height: 1.8;
     color: var(--accent-green);
+}
+
+.terminal-input-line {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--accent-green);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    outline: none;
+    padding: 0;
+}
+
+.chat-message {
+    margin-bottom: 24px;
+    display: block;
+}
+
+.user-message {
+    color: var(--accent-green);
+}
+
+.user-message .message-symbol {
+    margin-right: 8px;
 }
 
 .prompt {
@@ -490,8 +542,13 @@ section {
 }
 
 .cursor-blink {
+    display: inline-block;
+    width: 10px;
+    height: 16px;
+    background: var(--accent-green);
     animation: blink 1s infinite;
-    color: var(--accent-green);
+    margin-left: 2px;
+    vertical-align: text-bottom;
 }
 
 @keyframes blink {
@@ -504,12 +561,43 @@ section {
     line-height: 1.8;
 }
 
+.terminal-output div {
+    padding: 0;
+    margin: 0;
+    white-space: pre;
+}
+
+.terminal-line-init {
+    color: var(--accent-green);
+    font-weight: 600;
+}
+
+.terminal-line-action {
+    color: var(--accent-green);
+}
+
+.terminal-line-success {
+    color: var(--accent-green);
+}
+
+.terminal-url {
+    color: var(--accent-green);
+    font-weight: 700;
+}
+
+.bullet {
+    display: inline-block;
+    width: 12px;
+    color: var(--accent-green);
+}
+
 .terminal-stats {
     margin-top: 32px;
     padding-top: 32px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--accent-green);
     opacity: 0;
+    white-space: pre;
 }
 
 /* Demo Annotations - more emphasis */
@@ -561,7 +649,95 @@ section {
     color: var(--text-muted);
 }
 
-/* How It Works / Features - DRAMATIC stats */
+/* ==========================================================================
+   Use Cases Section
+   ========================================================================== */
+
+.use-cases {
+    padding: 120px 0;
+}
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+.code-folder {
+    color: #e6e6e6;
+    font-weight: 600;
+}
+
+.code-file {
+    color: #abb2bf;
+}
+
+.code-tree {
+    color: #5c6370;
+}
+
+/* ==========================================================================
+   Benefits - Integrated with Terminal
+   ========================================================================== */
+
+.benefits-compact {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.benefit-column strong {
+    display: block;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.benefit-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefit-column li {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.9;
+    padding-left: 20px;
+    position: relative;
+}
+
+.benefit-column li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-green-dark);
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.benefit-column li.coming-soon,
+.benefit-column li:last-child {
+    color: var(--text-muted);
+    opacity: 0.6;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .benefits-compact {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-top: 40px;
+    }
+}
+
+/* ==========================================================================
+   How It Works / Features - DRAMATIC stats
+   ========================================================================== */
+
 .how-it-works {
     padding: 120px 0;
     border-top: 1px solid var(--border);
@@ -781,6 +957,17 @@ section {
     font-size: 14px;
 }
 
+.built-by-link {
+    color: var(--color-text-muted);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.built-by-link:hover {
+    color: var(--color-text);
+}
+
 .footer-links {
     display: flex;
     gap: 24px;
@@ -809,6 +996,10 @@ section {
     .hero {
         min-height: auto;
         padding: 80px 0 60px;
+    }
+
+    .demo {
+        padding: 32px 0;
     }
 
     .terminal-body {

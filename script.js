@@ -72,19 +72,19 @@ const terminalOutputElement = document.getElementById('terminalOutput');
 const terminalStatsElement = document.getElementById('terminalStats');
 
 const outputLines = [
-    { text: "⚡ Operator initialized", delay: 800 },
+    { text: "⚡ 0perator initialized", delay: 800, type: 'init' },
     { text: "", delay: 200 },
-    { text: "→ Provisioning Postgres database on TigerData...", delay: 600 },
-    { text: "  ✓ Database created: postgres://tiger-db-xj4k.cloud", delay: 1000 },
+    { text: "→ Provisioning Postgres database on TigerData...", delay: 600, type: 'action' },
+    { text: "  ✓ Database created: <span class='terminal-url'>postgres://tiger-db-xj4k.cloud</span>", delay: 1000, type: 'success' },
     { text: "", delay: 200 },
-    { text: "→ Scaffolding Node/TypeScript application...", delay: 600 },
-    { text: "  ✓ Template initialized", delay: 400 },
-    { text: "  ✓ Dependencies installed", delay: 400 },
-    { text: "  ✓ Auth configured", delay: 400 },
-    { text: "  ✓ Database models generated", delay: 400 },
+    { text: "→ Scaffolding Node/TypeScript application...", delay: 600, type: 'action' },
+    { text: "  ✓ Template initialized", delay: 400, type: 'success' },
+    { text: "  ✓ Dependencies installed", delay: 400, type: 'success' },
+    { text: "  ✓ Auth configured", delay: 400, type: 'success' },
+    { text: "  ✓ Database models generated", delay: 400, type: 'success' },
     { text: "", delay: 200 },
-    { text: "→ Deploying application...", delay: 600 },
-    { text: "  ✓ Server started on http://localhost:3000", delay: 800 },
+    { text: "→ Deploying application...", delay: 600, type: 'action' },
+    { text: "  ✓ Server started on <span class='terminal-url'>http://localhost:3000</span>", delay: 800, type: 'success' },
     { text: "", delay: 400 },
 ];
 
@@ -99,8 +99,12 @@ function typePrompt() {
         charIndex++;
         setTimeout(typePrompt, 50);
     } else {
-        // Finished typing prompt, start output
+        // Finished typing prompt, hide cursor and start output
         setTimeout(() => {
+            const cursor = document.querySelector('.cursor-blink');
+            if (cursor) {
+                cursor.style.display = 'none';
+            }
             isTypingPrompt = false;
             startTime = Date.now();
             displayOutput();
@@ -112,8 +116,17 @@ function displayOutput() {
     if (lineIndex < outputLines.length) {
         const line = outputLines[lineIndex];
         const lineElement = document.createElement('div');
-        lineElement.textContent = line.text;
-        lineElement.style.animationDelay = '0s';
+        lineElement.innerHTML = line.text;
+
+        // Apply styling based on type
+        if (line.type === 'init') {
+            lineElement.className = 'terminal-line-init';
+        } else if (line.type === 'action') {
+            lineElement.className = 'terminal-line-action';
+        } else if (line.type === 'success') {
+            lineElement.className = 'terminal-line-success';
+        }
+
         terminalOutputElement.appendChild(lineElement);
 
         lineIndex++;
@@ -128,16 +141,8 @@ function showFinalStats() {
     const endTime = Date.now();
     const elapsed = ((endTime - startTime) / 1000).toFixed(1);
 
-    terminalStatsElement.innerHTML = `
-        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
-            <span>✓ Deployment complete</span>
-            <span>Total time: ${elapsed}s</span>
-        </div>
-    `;
+    terminalStatsElement.textContent = `✓ Deployment complete — Total time: ${elapsed}s`;
     terminalStatsElement.style.animation = 'fadeIn 0.6s forwards';
-
-    // Animate the deployment time counter
-    animateCounter(elapsed);
 }
 
 function animateCounter(target) {
@@ -257,4 +262,5 @@ casePrompts.forEach(prompt => {
         }
     });
 });
+
 
